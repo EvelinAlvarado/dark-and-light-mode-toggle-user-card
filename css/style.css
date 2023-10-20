@@ -5,6 +5,10 @@
   --bg-primary: #f0f8ff;
   --bg-secundary: #fff;
   --bg-3: #e9f5ff;
+  --bg-dark-primary: #1e2a36;
+  --bg-dark-secundary: #b35564;
+  --bg-dark-span: #1e2a36;
+  --bg-dark-icon: #1e2a36;
   --font-color-primary: #2fa1ff;
   --font-color-secundary: #777;
 }
@@ -23,6 +27,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Dark - light toggle */
+  transition: background 0.5s;
+}
+
+.section.dark {
+  background: var(--bg-dark-primary);
 }
 
 .card {
@@ -30,10 +40,17 @@
   width: 300px;
   height: 380px;
   background: var(--bg-secundary);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Dark - light toggle */
+  transition: background 0.5s;
+}
+
+.dark .card {
+  background: var(--bg-dark-secundary);
 }
 
 .content,
@@ -76,6 +93,10 @@
   font-size: 0.75em;
 }
 
+.dark .imgText h3 span {
+  color: var(--bg-dark-span);
+}
+
 .socialMedia {
   display: flex;
   margin-top: 15px;
@@ -101,6 +122,10 @@
   transition: 0.5s;
 }
 
+.dark .socialMedia li a {
+  background: var(--bg-dark-icon);
+}
+
 .socialMedia li a:hover {
   color: var(--bg-secundary);
 }
@@ -123,4 +148,32 @@
 
 .socialMedia li a:hover::before {
   transform: scale(1);
+}
+
+.toggle {
+  background: var(--bg-3);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dark .toggle {
+  background: var(--bg-dark-icon);
+}
+
+.toggle::before {
+  content: "\f186";
+  font-family: fontAwesome;
+  color: var(--font-color-primary);
+}
+
+.dark .toggle::before {
+  content: "\f185";
 }
